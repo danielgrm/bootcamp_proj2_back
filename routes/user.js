@@ -7,7 +7,7 @@ const auth = require ('../middleware/auth')
 const Cast = require ('../models/cast')
 
 // get lista geral
-router.get('/', [], async (req, res, next) => {
+router.get('/', auth, [], async (req, res, next) => {
     try {
         const film = await Film.find({})
 //        console.log(film)
@@ -64,7 +64,7 @@ router.delete('/:titulo', auth, [], async (req, res, next) => {
     })
 
 // post cadastra um item
-router.post('/', [
+router.post('/', auth, [
     check('titulo', 'empty name').not().isEmpty(),
     check('ano', 'empty name').not().isEmpty(),
     check('genero', 'empty name').not().isEmpty(),

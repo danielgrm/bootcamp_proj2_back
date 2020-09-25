@@ -20,12 +20,8 @@ const FilmSchema = new mongoose.Schema({
     },
     diretor : {
         type: String,
-    },
-    cast : [
-        {
-        type: String,
-        }
-    ],
+    }
+    
     
 })
 
